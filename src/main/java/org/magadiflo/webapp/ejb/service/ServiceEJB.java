@@ -16,8 +16,9 @@ import jakarta.enterprise.context.RequestScoped;
  * es decir... este EJB con estado debe estar en contexto de ReqyestScope, o de SessionScope.
  * Lo recomendable es usar @Stateless en los servlet
  */
-@RequestScoped
-@Stateful
+//@RequestScoped //solo aplica si se usa @Inject en las clases a inyectar y además si la clase donde se le declara es de @Stateful
+//@Stateful
+@Stateless
 public class ServiceEJB {
 
     private int contador;
