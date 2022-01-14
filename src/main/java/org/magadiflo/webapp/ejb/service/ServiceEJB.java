@@ -19,10 +19,11 @@ import jakarta.enterprise.context.RequestScoped;
 //@RequestScoped //solo aplica si se usa @Inject en las clases a inyectar y además si la clase donde se le declara es de @Stateful
 //@Stateful
 @Stateless
-public class ServiceEJB {
+public class ServiceEJB implements ServiceEJBLocal {
 
     private int contador;
 
+    @Override
     public String saludar(String nombre) {
         System.out.println("Imprimiendo dentro del ejb con instancia: " + this);
         this.contador++;

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.magadiflo.webapp.ejb.service.ServiceEJB;
+import org.magadiflo.webapp.ejb.service.ServiceEJBLocal;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -24,13 +25,13 @@ public class EjemploServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServiceEJB serviceEJB = null;
-        ServiceEJB serviceEJB2 = null;
+        ServiceEJBLocal serviceEJB = null;
+        ServiceEJBLocal serviceEJB2 = null;
 
         try {
             InitialContext ctx = new InitialContext();
-            serviceEJB = (ServiceEJB) ctx.lookup("java:global/60.webapp-ejb/ServiceEJB!org.magadiflo.webapp.ejb.service.ServiceEJB");
-            serviceEJB2 = (ServiceEJB) ctx.lookup("java:global/60.webapp-ejb/ServiceEJB!org.magadiflo.webapp.ejb.service.ServiceEJB");
+            serviceEJB = (ServiceEJBLocal) ctx.lookup("java:global/60.webapp-ejb/ServiceEJB!org.magadiflo.webapp.ejb.service.ServiceEJBLocal");
+            serviceEJB2 = (ServiceEJBLocal) ctx.lookup("java:global/60.webapp-ejb/ServiceEJB!org.magadiflo.webapp.ejb.service.ServiceEJBLocal");
         } catch (NamingException e) {
             e.printStackTrace();
         }
